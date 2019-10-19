@@ -1,7 +1,7 @@
 {
-    "name": "sebastiaanluca/skeleton",
+    "name": "sebastiaanluca/laravel-skeleton",
     "type": "project",
-    "description": "An opinionated fresh Laravel project.",
+    "description": "An opinionated fresh Laravel project to help you get started.",
     "keywords": [
         "laravel",
         "template"
