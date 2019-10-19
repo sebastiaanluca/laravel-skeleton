@@ -2,6 +2,9 @@
 
 namespace Framework\Http;
 
+use Framework\Http\Middleware\Authenticate;
+use Framework\Http\Middleware\TrimStrings;
+use Framework\Http\Middleware\TrustProxies;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
@@ -20,10 +23,7 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Interfaces\Web\Middleware\Authenticate;
 use Interfaces\Web\Middleware\RedirectIfAuthenticated;
-use Interfaces\Web\Middleware\TrimStrings;
-use Interfaces\Web\Middleware\TrustProxies;
 
 class Kernel extends HttpKernel
 {
