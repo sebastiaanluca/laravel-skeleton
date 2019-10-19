@@ -91,15 +91,73 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "scripts": {
-        "post-autoload-dump": [
-            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
-        ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi"
+        ],
+        "post-update-cmd": [
+            "@code:autocomplete",
+            "@cache:clear"
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "code:autocomplete": [
+            "@php artisan ide-helper:generate --ansi",
+            "@php artisan ide-helper:meta --ansi",
+            "@php artisan ide-helper:models --nowrite --ansi"
+        ],
+        "modules:refresh": "@php artisan modules:refresh --ansi",
+        "assets:publish": [
+            "@php artisan vendor:publish --tag=horizon-assets --force --ansi",
+            "@php artisan vendor:publish --tag=telescope-assets --force --ansi",
+            "@cache:clear"
+        ],
+        "cache:clear": [
+            "@php artisan cache:clear --ansi",
+            "@php artisan config:clear --ansi",
+            "@php artisan route:clear --ansi",
+            "@php artisan view:clear --ansi",
+            "@php artisan modules:clear --ansi",
+            "@php artisan morphmap:clear --ansi",
+            "@php artisan autobinding:clear --ansi",
+            "@php artisan telescope:clear --ansi",
+            "@php artisan clockwork:clean --ansi",
+            "@php artisan debugbar:clear --ansi"
+        ],
+        "session:clear": "@php artisan cache:clear session --ansi",
+        "db:refresh": "@php artisan migrate:fresh --seed --ansi",
+        "db:seed": "@php artisan db:seed --class=\"ProductionSeeder\" --ansi",
+        "app:rebuild": [
+            "composer install --ansi",
+            "@db:refresh --ansi",
+            "@code:autocomplete --ansi",
+            "yarn install",
+            "yarn run dev",
+            "@cache:clear --ansi",
+            "@php artisan search:index"
+        ],
+        "queue:clear": "@php artisan cache:clear queue --ansi",
+        "queue:restart": [
+            "@php artisan horizon:purge --ansi",
+            "@php artisan horizon:terminate --ansi",
+            "@php artisan queue:restart --ansi"
+        ],
+        "lint:check": "vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
+        "lint": "vendor/bin/phpcbf --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 || exit 0",
+        "test:composer": "@composer validate --no-check-all --strict",
+        "test:unit": "vendor/bin/phpunit",
+        "analyze": [
+            "@test:composer",
+            "@lint:check"
+        ],
+        "test": [
+            "@test:composer",
+            "@lint:check",
+            "@test:unit"
         ]
     }
 }
