@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Modules\Eloquent\Models;
 
+use Modules\DateTime\Models\StandardizesDates;
 use Propaganistas\LaravelFakeId\RoutesWithFakeIds;
 use SebastiaanLuca\BooleanDates\HasBooleanDates;
 use SebastiaanLuca\Flow\Models\Model;
@@ -11,8 +12,9 @@ use SebastiaanLuca\Flow\Models\Model;
 abstract class BaseModel extends Model
 {
     use PreventsLazyLoading;
-    use RoutesWithFakeIds;
+    use StandardizesDates;
     use HasBooleanDates;
+    use RoutesWithFakeIds;
 
     /**
      * The attributes that should be cast to native types.

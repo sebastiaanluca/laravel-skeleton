@@ -71,6 +71,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Display Timezone
+    |--------------------------------------------------------------------------
+    |
+    | All internal dates and datetimes are converted to the display timezone
+    | when used on public pages. This setting is overwritten with the user's
+    | timezone whenever an authenticated request is made and a valid timezone
+    | is found.
+    |
+    */
+
+    'display_timezone' => 'Europe/Brussels',
+
+    /*
+    |--------------------------------------------------------------------------
     | Application Locale Configuration
     |--------------------------------------------------------------------------
     |
@@ -137,8 +151,9 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
+         * Laravel Framework Service Providers
          */
+
         Illuminate\Auth\AuthServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
@@ -161,6 +176,12 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+
+        /*
+         * Module service providers
+         */
+
+        Modules\DateTime\Providers\DateTimeServiceProvider::class,
 
     ],
 
