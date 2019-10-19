@@ -4,7 +4,6 @@ declare (strict_types=1);
 
 namespace Domain\Auth\Models;
 
-use Modules\Database\Models\BaseModel;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
@@ -14,6 +13,7 @@ use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notification;
+use Modules\Eloquent\Models\BaseModel;
 
 class User extends BaseModel implements
     AuthenticatableContract,
@@ -22,13 +22,6 @@ class User extends BaseModel implements
 {
     use Authenticatable, Authorizable, CanResetPassword;
     use SoftDeletes;
-
-    /**
-     * The relations to eager load on every query.
-     *
-     * @var array
-     */
-    protected $allowedLazyLoadRelations = [];
 
     /**
      * The accessors to append to the model's array form.
