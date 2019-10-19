@@ -6,6 +6,7 @@
         "laravel",
         "template"
     ],
+    "homepage": "https://github.com/sebastiaanluca/laravel-skeleton",
     "license": "MIT",
     "require": {
         "php": "^7.3",
