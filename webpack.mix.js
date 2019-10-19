@@ -33,7 +33,7 @@ mix.webpackConfig({
     },
 })
 
-if (! mix.inProduction()) {
+if (!mix.inProduction()) {
     mix.sourceMaps()
 }
 
@@ -63,7 +63,7 @@ mix.browserSync({
         rule: {
             // Laravel Ignition workaround
             match: /<\/body>/i,
-            fn: function (snippet, match) {
+            fn: function(snippet, match) {
                 return snippet + match
             }
         }
