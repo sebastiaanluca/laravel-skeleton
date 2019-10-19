@@ -1,6 +1,6 @@
 <?php
 
-namespace PHPUnit\Framework;
+namespace Framework;
 
 use Illuminate\Foundation\Application as LaravelApplication;
 
