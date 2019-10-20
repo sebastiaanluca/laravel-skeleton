@@ -133,4 +133,16 @@ return [
 
     'log_channel' => env('MAIL_LOG_CHANNEL', 'mail'),
 
+    /*
+    |--------------------------------------------------------------------------
+    | Support Email Address
+    |--------------------------------------------------------------------------
+    |
+    | The default email address to send use as support reply-to email address or
+    | to notify of certain application events.
+    |
+    */
+
+    'support_email' => env('MAIL_SUPPORT_ADDRESS'),
+
 ];
