@@ -31,8 +31,8 @@
         "echo": "laravel-echo-server start",
         "serve": "ngrok http --region=eu -bind-tls=true www.project.test:80",
         "dump": "php artisan dump-server",
-        "horizon": "open https://www.project.test/private/horizon",
-        "telescope": "open https://www.project.test/private/telescope",
+        "horizon": "open https://www.project.test/_horizon",
+        "telescope": "open https://www.project.test/_telescope",
         "mailhog": "open http://www.project.test:8025/",
         "minio": "open https://www.project.test:9100/"
     }

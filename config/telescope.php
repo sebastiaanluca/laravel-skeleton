@@ -1,7 +1,8 @@
 <?php
 
-use Laravel\Telescope\Watchers;
 use Laravel\Telescope\Http\Middleware\Authorize;
+use Laravel\Telescope\Watchers;
+use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 return [
 
@@ -29,7 +30,7 @@ return [
     |
     */
 
-    'path' => env('TELESCOPE_PATH', 'telescope'),
+    'path' => env('TELESCOPE_PATH', '_telescope'),
 
     /*
     |--------------------------------------------------------------------------
@@ -62,7 +63,7 @@ return [
     |
     */
 
-    'enabled' => env('TELESCOPE_ENABLED', true),
+    'enabled' => env('TELESCOPE_ENABLED', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -92,11 +93,13 @@ return [
     */
 
     'ignore_paths' => [
-        //
+        'telescope',
+        '__clockwork',
     ],
 
     'ignore_commands' => [
-        //
+        'horizon:snapshot',
+        'telescope:prune',
     ],
 
     /*
@@ -154,5 +157,20 @@ return [
         Watchers\ScheduleWatcher::class => env('TELESCOPE_SCHEDULE_WATCHER', true),
 
         Watchers\ViewWatcher::class => env('TELESCOPE_VIEW_WATCHER', true),
+    ],
+
+    /*
+    |--------------------------------------------------------------------------
+    | Ignored Requests
+    |--------------------------------------------------------------------------
+    |
+    | An array of URIs and the methods to ignore when those locations are visited.
+    |
+    */
+
+    'ignored_requests' => [
+        '/' => [
+            HttpRequest::METHOD_HEAD,
+        ],
     ],
 ];
