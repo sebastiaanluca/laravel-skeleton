@@ -8,6 +8,10 @@
 
 This project uses PhpRedis which is 6x faster than the previously default Predis, but it does require you to install the PECL package first (see https://github.com/phpredis/phpredis).
 
+## Telescope
+
+Be sure to check `\Modules\Telescope\Providers\TelescopeServiceProvider` and update the `viewTelescope` auth gate to determine can or cannot view Telescope in production.
+
 ### Timezones
 
 All dates and times are stored and returned in the UTC timezone.

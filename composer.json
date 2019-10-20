@@ -65,13 +65,6 @@
         "preferred-install": "dist",
         "sort-packages": true
     },
-    "extra": {
-        "laravel": {
-            "dont-discover": [
-                "laravel/telescope"
-            ]
-        }
-    },
     "autoload": {
         "psr-4": {
             "Domain\\": "app/Domain/",

@@ -181,6 +181,7 @@ return [
          * Module service providers
          */
 
+        Modules\Telescope\Providers\TelescopeServiceProvider::class,
         Modules\DateTime\Providers\DateTimeServiceProvider::class,
 
         /*
