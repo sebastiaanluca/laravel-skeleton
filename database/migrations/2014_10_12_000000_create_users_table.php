@@ -1,8 +1,9 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
+declare(strict_types=1);
+
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+use Modules\Database\Migration;
 
 class CreateUsersTable extends Migration
 {
@@ -11,26 +12,28 @@ class CreateUsersTable extends Migration
      *
      * @return void
      */
-    public function up()
+    public function up() : void
     {
-        Schema::create('users', function (Blueprint $table) {
+        $this->schema()->create('users', static function (Blueprint $table) : void {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
-            $table->timestamps();
-        });
-    }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('users');
+            $table->string('email')->unique();
+
+            $table->string('name');
+            $table->string('display_name');
+            $table->string('locale', 8)->default('en');
+            $table->string('timezone', 40)->default('Europe/Brussels');
+
+            $table->string('password')->nullable();
+            $table->rememberToken();
+
+            $table->timestamp('accepted_terms_at')->nullable();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->timestamps();
+
+            $table->softDeletes();
+
+            $table->unique(['email', 'deleted_at']);
+        });
     }
 }
