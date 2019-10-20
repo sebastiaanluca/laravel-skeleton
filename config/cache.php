@@ -85,6 +85,36 @@ return [
             'endpoint' => env('DYNAMODB_ENDPOINT'),
         ],
 
+        /*
+        |--------------------------------------------------------------------------
+        | Custom Cache Stores
+        |--------------------------------------------------------------------------
+        |
+        | These custom cache stores allow you to easily clear their data via the
+        | `cache:clear {store}` command.
+        |
+        */
+
+        'redis:default' => [
+            'driver' => 'redis',
+            'connection' => 'default',
+        ],
+
+        'redis:session' => [
+            'driver' => 'redis',
+            'connection' => 'session',
+        ],
+
+        'redis:queue' => [
+            'driver' => 'redis',
+            'connection' => 'queue',
+        ],
+
+        'redis:broadcast' => [
+            'driver' => 'redis',
+            'connection' => 'broadcast',
+        ],
+
     ],
 
     /*
@@ -98,6 +128,6 @@ return [
     |
     */
 
-    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_').'_cache'),
+    'prefix' => env('CACHE_PREFIX', Str::slug(env('APP_NAME', 'laravel'), '_') . '_cache'),
 
 ];

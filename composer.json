@@ -131,7 +131,7 @@
             "@php artisan clockwork:clean --ansi",
             "@php artisan debugbar:clear --ansi"
         ],
-        "session:clear": "@php artisan cache:clear session --ansi",
+        "session:clear": "@php artisan cache:clear redis:session --ansi",
         "db:refresh": "@php artisan migrate:fresh --seed --ansi",
         "db:seed": "@php artisan db:seed --class=\"ProductionSeeder\" --ansi",
         "app:rebuild": [
@@ -141,14 +141,17 @@
             "yarn install",
             "yarn run dev",
             "@cache:clear --ansi",
+            "@queue:clear --ansi",
+            "@session:clear --ansi",
             "@php artisan search:index"
         ],
-        "queue:clear": "@php artisan cache:clear queue --ansi",
+        "queue:clear": "@php artisan cache:clear redis:queue --ansi",
         "queue:restart": [
             "@php artisan horizon:purge --ansi",
             "@php artisan horizon:terminate --ansi",
             "@php artisan queue:restart --ansi"
         ],
+        "broadcast:clear": "@php artisan cache:clear redis:broadcast --ansi",
         "lint:check": "vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
         "lint": "vendor/bin/phpcbf --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 || exit 0",
         "test:composer": "@composer validate --no-check-all --strict",

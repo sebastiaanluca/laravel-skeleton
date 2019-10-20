@@ -15,16 +15,6 @@ use Spatie\Backup\Commands\MonitorCommand as MonitorBackups;
 class Kernel extends ConsoleKernel
 {
     /**
-     * Register the commands for the application.
-     *
-     * @return void
-     */
-    protected function commands() : void
-    {
-        $this->load(base_path('app/Interfaces/Cli/Commands'));
-    }
-
-    /**
      * Define the application's command schedule.
      *
      * @param \Illuminate\Console\Scheduling\Schedule $schedule

@@ -183,6 +183,12 @@ return [
 
         Modules\DateTime\Providers\DateTimeServiceProvider::class,
 
+        /*
+         * Interface service providers
+         */
+
+        Interfaces\Cli\Providers\CliServiceProvider::class,
+
     ],
 
     /*
