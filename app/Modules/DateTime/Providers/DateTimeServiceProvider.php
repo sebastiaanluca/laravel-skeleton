@@ -17,6 +17,6 @@ class DateTimeServiceProvider extends ServiceProvider
      */
     public function boot() : void
     {
-        Carbon::mixin(CarbonMixin::class);
+        Carbon::mixin(new CarbonMixin);
     }
 }
