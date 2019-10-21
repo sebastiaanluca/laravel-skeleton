@@ -7,7 +7,7 @@ namespace Interfaces\Web\Routers;
 use SebastiaanLuca\Changelog\Changelog;
 use SebastiaanLuca\Router\Routers\Router;
 
-class ChangelogRouter extends Router
+class WebRouter extends Router
 {
     /**
      * Map the routes.
@@ -16,6 +16,8 @@ class ChangelogRouter extends Router
      */
     public function map() : void
     {
+        $this->router->view('', 'pages/welcome');
+
         Changelog::routes();
     }
 }

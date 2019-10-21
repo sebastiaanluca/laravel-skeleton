@@ -2,18 +2,17 @@
 
 declare(strict_types=1);
 
-namespace Interfaces\Cli\Providers;
+namespace Interfaces\Web\Providers;
 
-use Illuminate\Console\Application as Artisan;
-use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 use ReflectionClass;
+use SebastiaanLuca\Router\Routers\Router;
 use Symfony\Component\Finder\Finder;
 use function Support\source_path;
 
-class CliServiceProvider extends ServiceProvider
+class WebServiceProvider extends ServiceProvider
 {
     /**
      * Register any application services.
@@ -24,7 +23,7 @@ class CliServiceProvider extends ServiceProvider
     {
         parent::register();
 
-        $this->load(source_path('Interfaces/Cli/Commands'));
+        $this->load(source_path('Interfaces/Web/Routers'));
     }
 
     /**
@@ -46,19 +45,15 @@ class CliServiceProvider extends ServiceProvider
             return;
         }
 
-        // TODO: correctly resolve commands
-        foreach ((new Finder)->in($paths)->files() as $command) {
-            $command = $namespace . str_replace(
-                    ['/', '.php'],
-                    ['\\', ''],
-                    Str::after($command->getPathname(), realpath(app_path()) . DIRECTORY_SEPARATOR)
-                );
+        foreach ((new Finder)->in($paths)->files() as $router) {
+            $router = str_replace(
+                ['/', '.php'],
+                ['\\', ''],
+                Str::after($router->getPathname(), realpath(source_path()) . DIRECTORY_SEPARATOR)
+            );
 
-            if (is_subclass_of($command, Command::class) &&
-                ! (new ReflectionClass($command))->isAbstract()) {
-                Artisan::starting(static function ($artisan) use ($command) : void {
-                    $artisan->resolve($command);
-                });
+            if (is_subclass_of($router, Router::class) && ! (new ReflectionClass($router))->isAbstract()) {
+                app()->make($router);
             }
         }
     }

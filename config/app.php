@@ -190,6 +190,7 @@ return [
          */
 
         Interfaces\Cli\Providers\CliServiceProvider::class,
+        Interfaces\Web\Providers\WebServiceProvider::class,
 
     ],
 
