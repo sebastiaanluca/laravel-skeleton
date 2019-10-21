@@ -124,11 +124,9 @@
             "@php artisan modules:clear --ansi",
             "@php artisan morphmap:clear --ansi",
             "@php artisan autobinding:clear --ansi",
-            "@php artisan telescope:clear --ansi",
             "@php artisan clockwork:clean --ansi",
             "@php artisan debugbar:clear --ansi"
         ],
-        "session:clear": "@php artisan cache:clear redis:session --ansi",
         "db:refresh": "@php artisan migrate:fresh --seed --ansi",
         "db:seed": "@php artisan db:seed --class=\"ProductionSeeder\" --ansi",
         "app:rebuild": [
@@ -148,6 +146,7 @@
             "@php artisan horizon:terminate --ansi",
             "@php artisan queue:restart --ansi"
         ],
+        "session:clear": "@php artisan cache:clear redis:session --ansi",
         "broadcast:clear": "@php artisan cache:clear redis:broadcast --ansi",
         "lint:check": "vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1",
         "lint": "vendor/bin/phpcbf --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 || exit 0",
