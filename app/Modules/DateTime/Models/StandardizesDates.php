@@ -6,6 +6,7 @@ namespace Modules\DateTime\Models;
 
 use Carbon\CarbonInterface;
 use Illuminate\Support\Carbon;
+use Modules\DateTime\Enums\Timezones;
 
 trait StandardizesDates
 {
@@ -22,7 +23,7 @@ trait StandardizesDates
     protected function asDateTime($value) : Carbon
     {
         if ($value instanceof CarbonInterface) {
-            $value = $value->copy()->timezone('UTC');
+            $value = $value->copy()->timezone(Timezones::UTC);
         }
 
         return parent::asDateTime($value);

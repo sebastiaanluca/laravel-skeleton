@@ -34,6 +34,7 @@ return [
      | can also be used. For PDO, run the package migrations first.
      |
      */
+
     'storage' => [
         'enabled' => true,
         'driver' => 'file', // redis, file, pdo, custom

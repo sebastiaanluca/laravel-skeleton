@@ -1,5 +1,8 @@
 <?php
 
+use Modules\DateTime\Enums\Timezones;
+use Modules\Localization\Enums\Locales;
+
 return [
 
     /*
@@ -67,7 +70,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => Timezones::UTC,
 
     /*
     |--------------------------------------------------------------------------
@@ -81,7 +84,7 @@ return [
     |
     */
 
-    'display_timezone' => 'Europe/Brussels',
+    'display_timezone' => Timezones::EUROPE_BRUSSELS,
 
     /*
     |--------------------------------------------------------------------------
@@ -94,7 +97,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => Locales::EN,
 
     /*
     |--------------------------------------------------------------------------
@@ -107,7 +110,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => Locales::EN,
 
     /*
     |--------------------------------------------------------------------------
@@ -181,8 +184,11 @@ return [
          * Module service providers
          */
 
+        Modules\Blade\Providers\BladeServiceProvider::class,
+        Modules\Database\Providers\DatabaseServiceProvider::class,
         Modules\DateTime\Providers\DateTimeServiceProvider::class,
         Modules\Horizon\Providers\HorizonServiceProvider::class,
+        Modules\Routing\Providers\RouteServiceProvider::class,
         Modules\Telescope\Providers\TelescopeServiceProvider::class,
 
         /*
