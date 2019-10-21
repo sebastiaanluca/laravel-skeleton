@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "81e592f4041e2c271f8233ee1de2fb36",
+    "content-hash": "081b531c766d8f95db4dcba243107016",
     "packages": [
         {
             "name": "cakephp/chronos",
@@ -3265,6 +3265,64 @@
                 "timestamps"
             ],
             "time": "2019-09-06T15:04:23+00:00"
+        },
+        {
+            "name": "sebastiaanluca/laravel-changelog",
+            "version": "0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastiaanluca/laravel-changelog.git",
+                "reference": "40b681c2fe8088349b618f671db2ee0311b9912e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastiaanluca/laravel-changelog/zipball/40b681c2fe8088349b618f671db2ee0311b9912e",
+                "reference": "40b681c2fe8088349b618f671db2ee0311b9912e",
+                "shasum": ""
+            },
+            "require": {
+                "erusev/parsedown": "^1.7",
+                "laravel/framework": "5.8.*|^6.0",
+                "php": "^7.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.2.3",
+                "orchestra/testbench": "3.8.*|^4.0",
+                "phpunit/phpunit": "^8.3",
+                "sebastiaanluca/php-codesniffer-ruleset": "~0.4.2"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SebastiaanLuca\\Changelog\\ChangelogServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SebastiaanLuca\\Changelog\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastiaan Luca",
+                    "email": "hello@sebastiaanluca.com",
+                    "homepage": "https://www.sebastiaanluca.com",
+                    "role": "Author"
+                }
+            ],
+            "description": "Show your project's changelog in your application",
+            "homepage": "https://github.com/sebastiaanluca/laravel-changelog",
+            "keywords": [
+                "changelog",
+                "laravel"
+            ],
+            "time": "2019-09-27T14:06:19+00:00"
         },
         {
             "name": "sebastiaanluca/laravel-helpers",
@@ -10673,7 +10731,8 @@
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.3"
+        "php": "^7.3",
+        "ext-json": "*"
     },
     "platform-dev": []
 }
