@@ -46,13 +46,12 @@ class CliServiceProvider extends ServiceProvider
             return;
         }
 
-        // TODO: correctly resolve commands
         foreach ((new Finder)->in($paths)->files() as $command) {
-            $command = $namespace . str_replace(
-                    ['/', '.php'],
-                    ['\\', ''],
-                    Str::after($command->getPathname(), realpath(app_path()) . DIRECTORY_SEPARATOR)
-                );
+            $command = str_replace(
+                ['/', '.php'],
+                ['\\', ''],
+                Str::after($command->getPathname(), realpath(source_path()) . DIRECTORY_SEPARATOR)
+            );
 
             if (is_subclass_of($command, Command::class) &&
                 ! (new ReflectionClass($command))->isAbstract()) {
