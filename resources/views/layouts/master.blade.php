@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ str_replace('_', '-', locale()) }}" class="bg-white antialiased">
+<html lang="{{ str_replace('_', '-', locale()) }}" class="bg-white">
 
 <head>
     <meta charset="utf-8">
@@ -16,27 +16,27 @@
     @endforeach
 
     <!-- Optimizations -->
-    <link rel="preload" href="{{ mix('styles/app.css') }}" as="style">
-    <link rel="preload" href="{{ mix('scripts/manifest.js') }}" as="script">
-    <link rel="preload" href="{{ mix('scripts/vendor.js') }}" as="script">
-    <link rel="preload" href="{{ mix('scripts/app.js') }}" as="script">
+    <link rel="preload" href="{{ mix('css/app.css') }}" as="style">
+    <link rel="preload" href="{{ mix('js/manifest.js') }}" as="script">
+    <link rel="preload" href="{{ mix('js/vendor.js') }}" as="script">
+    <link rel="preload" href="{{ mix('js/app.js') }}" as="script">
     @stack('preload')
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('styles/app.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('styles')
 </head>
 
-<body class="bg-gray-200 font-sans leading-normal font-normal text-gray-800">
+<body class="leading-normal font-sans font-normal text-gray-900 antialiased">
     <div id="app" v-cloak>
         {{ $slot }}
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ mix('scripts/manifest.js') }}"></script>
-    <script src="{{ mix('scripts/vendor.js') }}"></script>
-    <script src="{{ mix('scripts/app.js') }}"></script>
-    @stack('scripts')
+    <!-- js -->
+    <script src="{{ mix('js/manifest.js') }}"></script>
+    <script src="{{ mix('js/vendor.js') }}"></script>
+    <script src="{{ mix('js/app.js') }}"></script>
+    @stack('js')
 </body>
 
 </html>
