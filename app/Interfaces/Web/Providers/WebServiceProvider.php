@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Interfaces\Web\Providers;
 
+use App\Enums\LocaleRoutes;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
+use Interfaces\Web\Enums\WebRoutes;
 use ReflectionClass;
 use SebastiaanLuca\Router\Routers\Router;
 use Symfony\Component\Finder\Finder;
@@ -24,6 +26,10 @@ class WebServiceProvider extends ServiceProvider
         parent::register();
 
         $this->load(source_path('Interfaces/Web/Routers'));
+
+        if (! class_exists('WebRoutes')) {
+            class_alias(WebRoutes::class, 'WebRoutes');
+        }
     }
 
     /**

@@ -13,12 +13,12 @@ Homestead.yaml
 node_modules
 npm-debug.log
 public/assets
+public/css
 public/fonts
 public/hot
+public/js
 public/mix-manifest.json
-public/scripts
 public/storage
-public/styles
 SCRATCH.md
 storage/*.key
 storage/clockwork

@@ -1,7 +1,5 @@
 <?php
 
-namespace App\Http\Middleware;
-
 namespace Modules\Localization\Middleware;
 
 use Closure;
