@@ -8,7 +8,7 @@ use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Modules\Localization\Enums\Locales;
 
-class LocaleManager
+class LocalizationManager
 {
     /**
      * Automatically determine and set the application locale.
@@ -42,6 +42,14 @@ class LocaleManager
         $locale = static::getSupportedLocale($locale);
 
         session()->put('app.locale', $locale);
+    }
+
+    /**
+     * @return bool
+     */
+    public static function hasSessionLocale() : bool
+    {
+        return session()->has('app.locale');
     }
 
     /**

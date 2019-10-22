@@ -25,6 +25,7 @@ use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Interfaces\Web\Middleware\RedirectIfAuthenticated;
 use Modules\DateTime\Middleware\SetDisplayTimezone;
+use Modules\Localization\Middleware\GuessDisplayLocale;
 use Modules\Localization\Middleware\setDisplayLocale;
 
 class Kernel extends HttpKernel
@@ -42,6 +43,7 @@ class Kernel extends HttpKernel
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
+        GuessDisplayLocale::class,
         setDisplayLocale::class,
         SetDisplayTimezone::class,
     ];
@@ -103,5 +105,8 @@ class Kernel extends HttpKernel
         AuthenticateSession::class,
         SubstituteBindings::class,
         Authorize::class,
+        GuessDisplayLocale::class,
+        setDisplayLocale::class,
+        SetDisplayTimezone::class,
     ];
 }

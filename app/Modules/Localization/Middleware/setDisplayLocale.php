@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 namespace Modules\Localization\Middleware;
 
 use Closure;
-use Modules\Localization\LocaleManager;
+use Modules\Localization\LocalizationManager;
 
 class setDisplayLocale
 {
@@ -19,7 +19,7 @@ class setDisplayLocale
      */
     public function handle($request, Closure $next)
     {
-        LocaleManager::autoSetLocale();
+        LocalizationManager::autoSetLocale();
 
         return $next($request);
     }
