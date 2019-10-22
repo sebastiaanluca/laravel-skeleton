@@ -7,7 +7,7 @@ namespace Interfaces\Web\RequestHandlers\Locale;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Interfaces\Web\RequestHandlers\RequestHandler;
-use Modules\Localization\Localizer;
+use Modules\Localization\LocaleManager;
 
 class ChangeLocale extends RequestHandler
 {
@@ -19,14 +19,14 @@ class ChangeLocale extends RequestHandler
     public function handle(string $locale) : RedirectResponse
     {
         if ($user = Auth::user()) {
-            $user->locale = Localizer::getSupportedLocale($locale);
+            $user->locale = LocaleManager::getSupportedLocale($locale);
 
             $user->save();
 
             return redirect()->back();
         }
 
-        Localizer::setSessionLocale($locale);
+        LocaleManager::setSessionLocale($locale);
 
         return redirect()->back();
 

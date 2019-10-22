@@ -24,7 +24,8 @@ use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 use Interfaces\Web\Middleware\RedirectIfAuthenticated;
-use Modules\Localization\Middleware\Localize;
+use Modules\DateTime\Middleware\SetDisplayTimezone;
+use Modules\Localization\Middleware\setDisplayLocale;
 
 class Kernel extends HttpKernel
 {
@@ -41,7 +42,8 @@ class Kernel extends HttpKernel
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
-        Localize::class,
+        setDisplayLocale::class,
+        SetDisplayTimezone::class,
     ];
 
     /**

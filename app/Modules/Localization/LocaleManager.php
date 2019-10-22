@@ -4,20 +4,20 @@ declare(strict_types=1);
 
 namespace Modules\Localization;
 
-use Carbon\Carbon;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Modules\Localization\Enums\Locales;
 
-class Localizer
+class LocaleManager
 {
     /**
      * Automatically determine and set the application locale.
      */
     public static function autoSetLocale() : void
     {
-        $locale = static::determineLocale();
-
-        static::setLocale($locale);
+        static::setLocale(
+            static::determineLocale()
+        );
     }
 
     /**
@@ -51,11 +51,11 @@ class Localizer
      */
     public static function getSupportedLocale(string $locale) : string
     {
-        if (! in_array($locale, Locales::values(), true)) {
-            return config('app.fallback_locale');
+        if (in_array($locale, Locales::values(), true)) {
+            return $locale;
         }
 
-        return $locale;
+        return config('app.fallback_locale');
     }
 
     /**

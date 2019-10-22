@@ -2,12 +2,12 @@
 
 namespace App\Http\Middleware;
 
-namespace Modules\Localization\Middleware;
+namespace Modules\DateTime\Middleware;
 
 use Closure;
-use Modules\Localization\Localizer;
+use Modules\DateTime\DateTimeManager;
 
-class Localize
+class SetDisplayTimezone
 {
     /**
      * Handle an incoming request.
@@ -19,7 +19,7 @@ class Localize
      */
     public function handle($request, Closure $next)
     {
-        Localizer::autoSetLocale();
+        DateTimeManager::autoSetDisplayTimezone();
 
         return $next($request);
     }

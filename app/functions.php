@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Support;
 
+use Illuminate\Validation\Factory as ValidationFactory;
+
 /**
  * Get the path to the source of the classes.
  *
@@ -34,4 +36,29 @@ function commit_hash() : ?string
     }
 
     return null;
+}
+
+/**
+ * Validate some data.
+ *
+ * @see https://freek.dev/315-validate-almost-anything-in-laravel
+ *
+ * @param string|array<string> $values
+ * @param string|array<string|array> $rules
+ *
+ * @return bool
+ */
+function validate($values, $rules) : bool
+{
+    if (! is_array($values)) {
+        $values = ['default' => $values];
+    }
+
+    if (! is_array($rules)) {
+        $rules = ['default' => $rules];
+    }
+
+    return app(ValidationFactory::class)
+        ->make($values, $rules)
+        ->passes();
 }

@@ -12,9 +12,9 @@ class CarbonMixin
     /**
      * @return \Closure
      */
-    public static function fromLocalTimezone() : Closure
+    public static function fromDisplayTimezone() : Closure
     {
-        return static function ($datetime) : Carbon {
+        return function ($datetime) : Carbon {
             $instance = Carbon::parse($datetime, config('app.display_timezone'));
 
             $instance->setTimezone(config('app.timezone'));
@@ -26,9 +26,9 @@ class CarbonMixin
     /**
      * @return \Closure
      */
-    public function toLocalTimezone() : Closure
+    public function toDisplayTimezone() : Closure
     {
-        return static function () : Carbon {
+        return function () : Carbon {
             $instance = $this->copy();
 
             $instance->setTimezone(config('app.display_timezone'));
