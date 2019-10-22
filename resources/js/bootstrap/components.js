@@ -1,7 +1,7 @@
 // Note the use of Webpack aliases directories instead of relative or absolute paths
 
 const components = [
-    require.context('./../../components', true, /\.vue$/i),
+    require.context('./../components', true, /\.vue$/i),
 ]
 
 components.map(files => {

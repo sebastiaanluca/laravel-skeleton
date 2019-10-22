@@ -22,13 +22,12 @@
         "postcss-preset-env": "^6.7"
     },
     "scripts": {
-        "dev": "npm run development",
+        "dev": "yarn run development",
         "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "watch": "npm run development -- --watch",
-        "watch:poll": "npm run watch -- --watch-poll",
-        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
-        "prod": "npm run production",
-        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "watch": "yarn run development --watch",
+        "watch-poll": "yarn run watch --watch-poll",
+        "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --https --config=node_modules/laravel-mix/setup/webpack.config.js",
+        "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --bail --config=node_modules/laravel-mix/setup/webpack.config.js",
         "echo": "laravel-echo-server start",
         "serve": "ngrok http --region=eu -bind-tls=true www.project.test:80",
         "dump": "php artisan dump-server",
