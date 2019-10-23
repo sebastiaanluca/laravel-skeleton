@@ -7,9 +7,9 @@ namespace Modules\Eloquent\Models;
 use Modules\DateTime\Models\StandardizesDates;
 use Propaganistas\LaravelFakeId\RoutesWithFakeIds;
 use SebastiaanLuca\BooleanDates\HasBooleanDates;
-use SebastiaanLuca\Flow\Models\Model;
+use SebastiaanLuca\Flow\Models\Model as EloquentModel;
 
-abstract class BaseModel extends Model
+abstract class Model extends EloquentModel
 {
     use PreventsLazyLoading;
     use StandardizesDates;

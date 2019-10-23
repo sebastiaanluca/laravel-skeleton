@@ -13,9 +13,9 @@ use Illuminate\Contracts\Hashing\Hasher;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Notifications\Notification;
-use Modules\Eloquent\Models\BaseModel;
+use Modules\Eloquent\Models\Model;
 
-class User extends BaseModel implements
+class User extends Model implements
     AuthenticatableContract,
     AuthorizableContract,
     CanResetPasswordContract
