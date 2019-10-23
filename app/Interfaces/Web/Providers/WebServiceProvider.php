@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Interfaces\Web\Providers;
 
-use App\Enums\LocaleRoutes;
 use Illuminate\Support\Arr;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;

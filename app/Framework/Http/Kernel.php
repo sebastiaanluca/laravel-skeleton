@@ -1,10 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Framework\Http;
 
-use Framework\Http\Middleware\Authenticate;
-use Framework\Http\Middleware\TrimStrings;
-use Framework\Http\Middleware\TrustProxies;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
@@ -23,10 +22,14 @@ use Illuminate\Routing\Middleware\ValidateSignature;
 use Illuminate\Session\Middleware\AuthenticateSession;
 use Illuminate\Session\Middleware\StartSession;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
-use Interfaces\Web\Middleware\RedirectIfAuthenticated;
+use Modules\Auth\Middleware\Authenticate;
+use Modules\Auth\Middleware\AuthenticateOnceWithBasicAuth;
+use Modules\Auth\Middleware\RedirectIfAuthenticated;
 use Modules\DateTime\Middleware\SetDisplayTimezone;
 use Modules\Localization\Middleware\GuessDisplayLocale;
 use Modules\Localization\Middleware\setDisplayLocale;
+use Modules\Support\Middleware\TrimStrings;
+use Modules\Support\Middleware\TrustProxies;
 
 class Kernel extends HttpKernel
 {
@@ -80,6 +83,7 @@ class Kernel extends HttpKernel
     protected $routeMiddleware = [
         'auth' => Authenticate::class,
         'auth.basic' => AuthenticateWithBasicAuth::class,
+        'auth.basic.once' => AuthenticateOnceWithBasicAuth::class,
         'bindings' => SubstituteBindings::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
