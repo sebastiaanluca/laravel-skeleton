@@ -24,6 +24,25 @@ class User extends BaseModel implements
     use SoftDeletes;
 
     /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'accepted_terms_at',
+    ];
+
+    /**
+     * Set the date of fields to the current date and time if a counterpart
+     * boolean field is true-ish.
+     *
+     * @var array
+     */
+    protected $booleanDates = [
+        'has_accepted_terms' => 'accepted_terms_at',
+    ];
+
+    /**
      * The accessors to append to the model's array form.
      *
      * @var array
