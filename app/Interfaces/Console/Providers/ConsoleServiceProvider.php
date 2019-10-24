@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Interfaces\Cli\Providers;
+namespace Interfaces\Console\Providers;
 
 use Closure;
 use Illuminate\Console\Application as Artisan;
@@ -12,7 +12,7 @@ use Modules\Support\Concerns\LoadsClassesInDirectory;
 use ReflectionClass;
 use function Support\source_path;
 
-class CliServiceProvider extends ServiceProvider
+class ConsoleServiceProvider extends ServiceProvider
 {
     use LoadsClassesInDirectory;
 
@@ -24,7 +24,7 @@ class CliServiceProvider extends ServiceProvider
     public function boot() : void
     {
         $this->load(
-            source_path('Interfaces/Cli/Commands'),
+            source_path('Interfaces/Console/Commands'),
             Closure::fromCallable([$this, 'registerCommand'])
         );
     }

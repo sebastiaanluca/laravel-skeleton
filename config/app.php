@@ -195,7 +195,7 @@ return [
          * Interface service providers
          */
 
-        Interfaces\Cli\Providers\CliServiceProvider::class,
+        Interfaces\Console\Providers\ConsoleServiceProvider::class,
         Interfaces\Web\Providers\WebServiceProvider::class,
 
     ],
