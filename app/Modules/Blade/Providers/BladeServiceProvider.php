@@ -10,7 +10,7 @@ use Spatie\BladeX\Facades\BladeX;
 class BladeServiceProvider extends ServiceProvider
 {
     /**
-     * Register the application's response macros.
+     * Bootstrap any application services.
      *
      * @return void
      */

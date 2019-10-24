@@ -10,7 +10,7 @@ use Illuminate\Support\ServiceProvider;
 class DatabaseServiceProvider extends ServiceProvider
 {
     /**
-     * Register the application's response macros.
+     * Bootstrap any application services.
      *
      * @return void
      */
