@@ -16,7 +16,7 @@ Be sure to check `\Modules\Horizon\Providers\HorizonServiceProvider` and update 
 
 Be sure to check `\Modules\Telescope\Providers\TelescopeServiceProvider` and update the `viewTelescope` auth gate to determine can or cannot view Telescope in production.
 
-### Timezones
+## Timezones
 
 All dates and times are stored and returned in the UTC timezone.
 
