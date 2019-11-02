@@ -165,14 +165,5 @@
             "@lint:check",
             "@test:unit"
         ]
-    },
-    "repositories": {
-        "sebastiaanluca/laravel-presets": {
-            "type": "path",
-            "url": "../laravel-presets",
-            "options": {
-                "symlink": true
-            }
-        }
     }
 }
