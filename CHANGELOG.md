@@ -7,3 +7,7 @@ Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) princip
 ## Unreleased
 
 Release date: TBA
+
+## 1.0.0
+
+Release date: 2019-11-02
