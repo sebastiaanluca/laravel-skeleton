@@ -1,5 +1,8 @@
 <?php
 
+use Modules\DateTime\Enums\Timezones;
+use Modules\Localization\Enums\Locales;
+
 return [
 
     /*
@@ -67,7 +70,21 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => Timezones::UTC,
+
+    /*
+    |--------------------------------------------------------------------------
+    | Display Timezone
+    |--------------------------------------------------------------------------
+    |
+    | All internal dates and datetimes are converted to the display timezone
+    | when used on public pages. This setting is overwritten with the user's
+    | timezone whenever an authenticated request is made and a valid timezone
+    | is found.
+    |
+    */
+
+    'display_timezone' => Timezones::EUROPE_BRUSSELS,
 
     /*
     |--------------------------------------------------------------------------
@@ -80,7 +97,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => Locales::EN,
 
     /*
     |--------------------------------------------------------------------------
@@ -93,7 +110,7 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => Locales::EN,
 
     /*
     |--------------------------------------------------------------------------
@@ -137,17 +154,19 @@ return [
     'providers' => [
 
         /*
-         * Laravel Framework Service Providers...
+         * Laravel Framework Service Providers
          */
+
         Illuminate\Auth\AuthServiceProvider::class,
+        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Broadcasting\BroadcastServiceProvider::class,
         Illuminate\Bus\BusServiceProvider::class,
         Illuminate\Cache\CacheServiceProvider::class,
-        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Cookie\CookieServiceProvider::class,
         Illuminate\Database\DatabaseServiceProvider::class,
         Illuminate\Encryption\EncryptionServiceProvider::class,
         Illuminate\Filesystem\FilesystemServiceProvider::class,
+        Illuminate\Foundation\Providers\ConsoleSupportServiceProvider::class,
         Illuminate\Foundation\Providers\FoundationServiceProvider::class,
         Illuminate\Hashing\HashServiceProvider::class,
         Illuminate\Mail\MailServiceProvider::class,
@@ -156,24 +175,28 @@ return [
         Illuminate\Pipeline\PipelineServiceProvider::class,
         Illuminate\Queue\QueueServiceProvider::class,
         Illuminate\Redis\RedisServiceProvider::class,
-        Illuminate\Auth\Passwords\PasswordResetServiceProvider::class,
         Illuminate\Session\SessionServiceProvider::class,
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * Module service providers
          */
 
+        Modules\Blade\Providers\BladeServiceProvider::class,
+        Modules\Database\Providers\DatabaseServiceProvider::class,
+        Modules\DateTime\Providers\DateTimeServiceProvider::class,
+        Modules\Horizon\Providers\HorizonServiceProvider::class,
+        Modules\Routing\Providers\RouteServiceProvider::class,
+        Modules\Telescope\Providers\TelescopeServiceProvider::class,
+
         /*
-         * Application Service Providers...
+         * Interface service providers
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+
+        Interfaces\Console\Providers\ConsoleServiceProvider::class,
+        Interfaces\Web\Providers\WebServiceProvider::class,
 
     ],
 
@@ -214,7 +237,6 @@ return [
         'Password' => Illuminate\Support\Facades\Password::class,
         'Queue' => Illuminate\Support\Facades\Queue::class,
         'Redirect' => Illuminate\Support\Facades\Redirect::class,
-        'Redis' => Illuminate\Support\Facades\Redis::class,
         'Request' => Illuminate\Support\Facades\Request::class,
         'Response' => Illuminate\Support\Facades\Response::class,
         'Route' => Illuminate\Support\Facades\Route::class,
