@@ -21,9 +21,7 @@ public/mix-manifest.json
 public/storage
 SCRATCH.md
 storage/*.key
-storage/clockwork
-storage/clockwork/
-storage/database
+storage/database/
 storage/debugbar/
 storage/medialibrary/
 storage/purifier/
