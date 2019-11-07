@@ -196,9 +196,10 @@ return [
     */
 
     'filter_uris' => [
-        '/horizon/.*',
-        '/telescope/.*',
+        '/_horizon/.*',
+        '/_telescope/.*',
         '/_debugbar/.*',
+        '/_compass/.*',
     ],
 
     /*
