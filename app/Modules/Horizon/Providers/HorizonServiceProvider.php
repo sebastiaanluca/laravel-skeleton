@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Modules\Horizon\Providers;
 
 use Illuminate\Support\Facades\Gate;
