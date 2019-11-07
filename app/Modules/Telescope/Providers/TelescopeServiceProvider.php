@@ -21,6 +21,8 @@ class TelescopeServiceProvider extends TelescopeApplicationServiceProvider
      */
     public function register() : void
     {
+        Telescope::ignoreMigrations();
+
         $this->hideSensitiveRequestDetails();
 
         Telescope::filter(Closure::fromCallable([$this, 'filter']));
