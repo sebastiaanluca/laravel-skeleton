@@ -10,7 +10,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\ServiceProvider;
 use Modules\Support\Concerns\LoadsClassesInDirectory;
 use ReflectionClass;
-use function Modules\Support\source_path;
+use function Support\source_path;
 
 class ConsoleServiceProvider extends ServiceProvider
 {

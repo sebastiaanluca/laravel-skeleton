@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Modules\Support;
+namespace Support;
 
 use Illuminate\Validation\Factory as ValidationFactory;
 
