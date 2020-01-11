@@ -6,9 +6,19 @@ namespace Framework\Exceptions;
 
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Modules\Support\Exceptions\MalformedJsonRequest;
 
 class Handler extends ExceptionHandler
 {
+    /**
+     * A list of the exception types that are not reported.
+     *
+     * @var array
+     */
+    protected $dontReport = [
+        MalformedJsonRequest::class,
+    ];
+
     /**
      * Convert an authentication exception into an unauthenticated response.
      *

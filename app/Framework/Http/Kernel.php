@@ -31,7 +31,7 @@ use Modules\Localization\Middleware\setDisplayLocale;
 use Modules\Support\Middleware\ForceJsonRequests;
 use Modules\Support\Middleware\TrimStrings;
 use Modules\Support\Middleware\TrustProxies;
-use Modules\Support\Middleware\ValidateJsonInput;
+use Modules\Support\Middleware\ValidateJsonRequestBody;
 use Spatie\Cors\Cors;
 
 class Kernel extends HttpKernel
@@ -52,7 +52,6 @@ class Kernel extends HttpKernel
         GuessDisplayLocale::class,
         setDisplayLocale::class,
         SetDisplayTimezone::class,
-        ValidateJsonInput::class,
     ];
 
     /**
@@ -69,13 +68,15 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
+            ValidateJsonRequestBody::class,
         ],
 
         'api' => [
+            ForceJsonRequests::class,
             ThrottleRequests::class . ':60,1',
             Cors::class,
-            ForceJsonRequests::class,
             SubstituteBindings::class,
+            ValidateJsonRequestBody::class,
         ],
     ];
 
@@ -88,8 +89,8 @@ class Kernel extends HttpKernel
      */
     protected $routeMiddleware = [
         'auth' => Authenticate::class,
-        'auth:basic' => AuthenticateWithBasicAuth::class,
-        'auth:basic:once' => AuthenticateOnceWithBasicAuth::class,
+        'auth.basic' => AuthenticateWithBasicAuth::class,
+        'auth.basic.once' => AuthenticateOnceWithBasicAuth::class,
         'bindings' => SubstituteBindings::class,
         'cache.headers' => SetCacheHeaders::class,
         'can' => Authorize::class,
@@ -108,6 +109,7 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewarePriority = [
+        ForceJsonRequests::class,
         StartSession::class,
         ShareErrorsFromSession::class,
         ThrottleRequests::class,
@@ -119,5 +121,6 @@ class Kernel extends HttpKernel
         Authorize::class,
         ForceJsonRequests::class,
         SubstituteBindings::class,
+        ValidateJsonRequestBody::class,
     ];
 }
