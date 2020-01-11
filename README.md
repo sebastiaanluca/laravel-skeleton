@@ -29,5 +29,5 @@ $model->published_at = Carbon::fromDisplayTimezone($request->published_at);
 If you need to return a localized date/time:
 
 ```php
-$model->created_at->toDisplayTimezone()->formatLocalized('%A %B %H');
+$model->created_at->toDisplayTimezone()->isoFormat('LLLL');
 ```
