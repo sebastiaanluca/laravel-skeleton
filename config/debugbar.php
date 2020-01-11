@@ -17,10 +17,10 @@ return [
     'enabled' => env('DEBUGBAR_ENABLED', null),
 
     'except' => [
+        '__clockwork*',
+        '_compass*',
         '_horizon*',
         '_telescope*',
-        '_clockwork*',
-        '_compass*',
     ],
 
     /*
