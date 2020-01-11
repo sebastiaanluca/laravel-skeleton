@@ -38,7 +38,7 @@ trait PreventsLazyLoading
     protected function shouldPreventLazyLoadingRelation(string $method) : bool
     {
         return $this->exists
-            && config('database.prevent_lazy_loading_relations')
+            && config('models.prevent_lazy_loading_relations')
             && (property_exists($this, 'allowedLazyLoadRelations') && ! in_array($method, $this->allowedLazyLoadRelations, true));
     }
 }
