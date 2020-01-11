@@ -23,6 +23,10 @@ class ConsoleServiceProvider extends ServiceProvider
      */
     public function boot() : void
     {
+        if (! $this->app->runningInConsole()) {
+            return;
+        }
+
         $this->load(
             source_path('Interfaces/Console/Commands'),
             Closure::fromCallable([$this, 'registerCommand'])
