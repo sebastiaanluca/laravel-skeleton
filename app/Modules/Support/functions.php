@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Support;
+namespace Modules\Support;
 
 use Illuminate\Validation\Factory as ValidationFactory;
 
@@ -19,7 +19,8 @@ function source_path($path = '') : string
 }
 
 /**
- * Get the Git commit hash of the currently checked out branch/commit as a string.
+ * Get the Git commit hash of the currently checked out branch/commit as a
+ * string.
  *
  * @return string|null
  */

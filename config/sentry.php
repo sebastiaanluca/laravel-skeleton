@@ -1,6 +1,6 @@
 <?php
 
-use function Support\commit_hash;
+use function Modules\Support\commit_hash;
 
 return [
 

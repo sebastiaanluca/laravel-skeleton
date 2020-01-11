@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Modules\DateTime;
 
 use Illuminate\Support\Facades\Auth;
-use function Support\validate;
+use function Modules\Support\validate;
 
 class DateTimeManager
 {

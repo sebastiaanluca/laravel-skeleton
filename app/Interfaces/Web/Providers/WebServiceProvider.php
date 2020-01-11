@@ -10,7 +10,7 @@ use Interfaces\Web\Enums\WebRoutes;
 use Modules\Support\Concerns\LoadsClassesInDirectory;
 use ReflectionClass;
 use SebastiaanLuca\Router\Routers\Router;
-use function Support\source_path;
+use function Modules\Support\source_path;
 
 class WebServiceProvider extends ServiceProvider
 {
