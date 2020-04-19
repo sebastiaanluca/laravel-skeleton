@@ -55,19 +55,20 @@ mix.browserSync({
     open: false,
     https: true,
     files: [
-        './app/Modules/**/*.blade.php',
         './resources/views/**/*.blade.php',
     ],
     reloadDelay: process.env.BROWSERSYNC_DELAY ? parseInt(process.env.BROWSERSYNC_DELAY) : 0,
+
+    // Work nice with Turbolinks by injecting the tag
+    // into the head of the document
     snippetOptions: {
         rule: {
-            // Laravel Ignition workaround
-            match: /<\/body>/i,
+            match: /<\/head>/i,
             fn: function(snippet, match) {
                 return snippet + match
             }
         }
-    }
+    },
 })
 
 mix.disableNotifications()

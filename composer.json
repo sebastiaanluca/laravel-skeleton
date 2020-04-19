@@ -15,6 +15,7 @@
         "doctrine/dbal": "^2.9",
         "fideloper/proxy": "^4.2",
         "guzzlehttp/guzzle": "^6.5",
+        "imliam/laravel-blade-helper": "^1.2",
         "laravel/framework": "^6.10",
         "laravel/helpers": "^1.1",
         "laravel/horizon": "^3.4",
@@ -53,6 +54,7 @@
         "facade/ignition": "^1.14",
         "fzaninotto/faker": "^1.9",
         "itsgoingd/clockwork": "^4.0",
+        "jtant/laravel-env-sync": "^3.0",
         "kint-php/kint": "^3.3",
         "mockery/mockery": "^1.3",
         "nunomaduro/collision": "^3.0",
@@ -99,19 +101,19 @@
     "scripts": {
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\"",
-            "yarn"
+            "npm install"
         ],
         "post-create-project-cmd": [
             "@php artisan key:generate --ansi",
             "@php artisan fakeid:setup --overwrite --ansi"
         ],
-        "post-update-cmd": [
-            "@code:autocomplete",
-            "@cache:clear"
-        ],
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
+        ],
+        "post-update-cmd": [
+            "@assets:publish",
+            "@code:autocomplete"
         ],
         "code:autocomplete": [
             "@php artisan ide-helper:generate --ansi",
@@ -133,19 +135,22 @@
             "@php artisan clockwork:clean --ansi",
             "@php artisan debugbar:clear --ansi"
         ],
-        "db:refresh": "@php artisan migrate:fresh --seed --ansi",
-        "db:seed": "@php artisan db:seed --class=\"ProductionSeeder\" --ansi",
+        "db:seed": "@php artisan db:seed --ansi",
+        "db:fresh": "@php artisan migrate:fresh --seed --ansi",
+        "fresh": "@db:fresh",
         "app:rebuild": [
             "composer install --ansi",
-            "@db:refresh --ansi",
+            "@php artisan env:sync --ansi",
+            "@fresh --ansi",
             "@code:autocomplete --ansi",
-            "yarn install",
-            "yarn run dev &> /dev/null",
+            "rm -rf node_modules",
+            "npm install",
+            "npm run dev",
             "@cache:clear --ansi",
             "@queue:clear --ansi",
-            "@session:clear --ansi",
-            "@php artisan search:index"
+            "@session:clear --ansi"
         ],
+        "reset": "@app:rebuild",
         "queue:clear": "@php artisan cache:clear redis:queue --ansi",
         "queue:restart": [
             "@php artisan horizon:purge --ansi",

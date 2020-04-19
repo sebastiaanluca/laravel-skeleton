@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    @yield('meta')
+    @stack('meta')
 
     <title>@yield('title') @hasSection('title') - @endif {{ config('app.name', 'Laravel') }}</title>
 
@@ -25,18 +25,18 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('styles')
-</head>
-
-<body class="leading-normal font-sans font-normal text-gray-900 antialiased">
-    <div id="app" v-cloak>
-        {{ $slot }}
-    </div>
 
     <!-- js -->
     <script src="{{ mix('js/manifest.js') }}"></script>
     <script src="{{ mix('js/vendor.js') }}"></script>
     <script src="{{ mix('js/app.js') }}"></script>
     @stack('js')
+</head>
+
+<body class="leading-normal font-sans font-normal text-gray-900 antialiased">
+    <div id="app" v-cloak>
+        {{ $slot }}
+    </div>
 </body>
 
 </html>
