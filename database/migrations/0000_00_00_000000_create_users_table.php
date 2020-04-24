@@ -10,7 +10,7 @@ class CreateUsersTable extends Migration
     public function up() : void
     {
         $this->schema()->create('users', static function (Blueprint $table) : void {
-            $table->bigIncrements('id');
+            $table->id();
 
             $table->string('email')->unique();
 

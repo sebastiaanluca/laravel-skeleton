@@ -10,7 +10,7 @@ class CreateFailedJobsTable extends Migration
     public function up() : void
     {
         $this->schema()->create('failed_jobs', static function (Blueprint $table) : void {
-            $table->bigIncrements('id');
+            $table->id();
 
             $table->text('connection');
             $table->text('queue');
