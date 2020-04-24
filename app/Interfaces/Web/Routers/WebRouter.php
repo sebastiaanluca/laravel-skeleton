@@ -6,6 +6,7 @@ namespace Interfaces\Web\Routers;
 
 use Interfaces\Web\Enums\WebRoutes;
 use Interfaces\Web\RequestHandlers\Locale\ChangeLocale;
+use Interfaces\Web\RequestHandlers\Users\LoginController;
 use SebastiaanLuca\Changelog\Changelog;
 use SebastiaanLuca\Router\Routers\Router;
 
@@ -21,8 +22,10 @@ class WebRouter extends Router
             Changelog::routes();
         });
 
-        $this->router->group(['middleware' => 'web'], function () : void {
-
+        $this->router->middleware('web')->group(function () : void {
+            $this->router->get('users/login', LoginController::class . '@showLoginForm')->name('login');
+            $this->router->post('users/login', LoginController::class . '@login');
+            $this->router->get('users/logout', LoginController::class . '@logout')->name('logout');
         });
     }
 }

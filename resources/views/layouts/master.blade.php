@@ -35,14 +35,13 @@
     @stack('js')
 </head>
 
-<body class="leading-normal font-sans font-normal text-gray-900 antialiased">
+<body class="leading-normal font-sans font-normal text-gray-800 antialiased">
     <div id="app" v-cloak>
         <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
-
         {{ $slot }}
     </div>
 
     <!-- Prevent CSS3 transitions from flashing on page load -->
-    <script> </script>
+    <script></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-@component('layouts/master')
+@component('layouts.master')
 
     <div>
         Current locale: {{ app()->getLocale() }}
