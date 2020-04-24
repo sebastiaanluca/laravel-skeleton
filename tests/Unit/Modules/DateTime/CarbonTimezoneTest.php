@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Unit\DateTime\TimezoneTest;
+namespace Tests\Unit\Modules\DateTime;
 
 use Illuminate\Support\Carbon;
 use Tests\TestCase;
