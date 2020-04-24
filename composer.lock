@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5466c0aafd27132c6908ad433772bd2f",
+    "content-hash": "b4e54eada47375d5c46a513d82f3a2fc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4414,197 +4414,6 @@
                 "spatie"
             ],
             "time": "2020-04-20T09:18:16+00:00"
-        },
-        {
-            "name": "spatie/laravel-view-models",
-            "version": "1.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/laravel-view-models.git",
-                "reference": "bb8f019d0f5b1c7bc73a040f8586b47358a5ea64"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-view-models/zipball/bb8f019d0f5b1c7bc73a040f8586b47358a5ea64",
-                "reference": "bb8f019d0f5b1c7bc73a040f8586b47358a5ea64",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "^6.0|^7.0",
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "orchestra/testbench": "^4.0|^5.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Spatie\\ViewModels\\Providers\\ViewModelsServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\ViewModels\\": "src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Brent Roose",
-                    "email": "brent@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "View models in Laravel",
-            "homepage": "https://github.com/spatie/laravel-view-models",
-            "keywords": [
-                "laravel-view-models",
-                "spatie"
-            ],
-            "time": "2020-03-03T09:10:18+00:00"
-        },
-        {
-            "name": "spatie/once",
-            "version": "2.2.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/spatie/once.git",
-                "reference": "6d4a379546684043c225b9a96d8ced7b8a84b889"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/spatie/once/zipball/6d4a379546684043c225b9a96d8ced7b8a84b889",
-                "reference": "6d4a379546684043c225b9a96d8ced7b8a84b889",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.2"
-            },
-            "require-dev": {
-                "larapack/dd": "^1.1",
-                "phpunit/phpunit": "^8.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Spatie\\Once\\": "src"
-                },
-                "files": [
-                    "src/functions.php"
-                ]
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Freek Van der Herten",
-                    "email": "freek@spatie.be",
-                    "homepage": "https://spatie.be",
-                    "role": "Developer"
-                }
-            ],
-            "description": "A magic memoization function",
-            "homepage": "https://github.com/spatie/once",
-            "keywords": [
-                "cache",
-                "callable",
-                "memozation",
-                "once",
-                "spatie"
-            ],
-            "time": "2020-02-18T15:10:38+00:00"
-        },
-        {
-            "name": "staudenmeir/eloquent-eager-limit",
-            "version": "v1.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/staudenmeir/eloquent-eager-limit.git",
-                "reference": "aa4a27103cd550d5dfb88e259cb1777c28253c65"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/staudenmeir/eloquent-eager-limit/zipball/aa4a27103cd550d5dfb88e259cb1777c28253c65",
-                "reference": "aa4a27103cd550d5dfb88e259cb1777c28253c65",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^7.0",
-                "php": "^7.2.5"
-            },
-            "require-dev": {
-                "laravel/homestead": "^10.0",
-                "phpunit/phpunit": "^8.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Staudenmeir\\EloquentEagerLimit\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonas Staudenmeir",
-                    "email": "mail@jonas-staudenmeir.de"
-                }
-            ],
-            "description": "Laravel Eloquent eager loading with limit",
-            "time": "2020-01-31T12:23:44+00:00"
-        },
-        {
-            "name": "staudenmeir/eloquent-has-many-deep",
-            "version": "v1.12",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/staudenmeir/eloquent-has-many-deep.git",
-                "reference": "7417572873c9fb4fa84e894ebbf324629cbc63c0"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/staudenmeir/eloquent-has-many-deep/zipball/7417572873c9fb4fa84e894ebbf324629cbc63c0",
-                "reference": "7417572873c9fb4fa84e894ebbf324629cbc63c0",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/database": "^7.0",
-                "php": "^7.2.5"
-            },
-            "require-dev": {
-                "illuminate/pagination": "^7.0",
-                "laravel/homestead": "^10.0",
-                "phpunit/phpunit": "^8.5",
-                "staudenmeir/eloquent-eager-limit": "^1.5"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Staudenmeir\\EloquentHasManyDeep\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Jonas Staudenmeir",
-                    "email": "mail@jonas-staudenmeir.de"
-                }
-            ],
-            "description": "Laravel Eloquent HasManyThrough relationships with unlimited levels",
-            "time": "2020-01-31T12:37:57+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -10127,5 +9936,6 @@
     "platform-dev": [],
     "platform-overrides": {
         "php": "7.4"
-    }
+    },
+    "plugin-api-version": "1.1.0"
 }

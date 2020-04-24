@@ -2,7 +2,6 @@
 
 use Laravel\Telescope\Http\Middleware\Authorize;
 use Laravel\Telescope\Watchers;
-use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 return [
 
@@ -30,7 +29,7 @@ return [
     |
     */
 
-    'path' => env('TELESCOPE_PATH', '_telescope'),
+    'path' => env('TELESCOPE_PATH', 'telescope'),
 
     /*
     |--------------------------------------------------------------------------
@@ -63,7 +62,7 @@ return [
     |
     */
 
-    'enabled' => env('TELESCOPE_ENABLED', false),
+    'enabled' => env('TELESCOPE_ENABLED', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -93,13 +92,11 @@ return [
     */
 
     'ignore_paths' => [
-        'telescope',
-        '__clockwork',
+        'nova-api*',
     ],
 
     'ignore_commands' => [
-        'horizon:snapshot',
-        'telescope:prune',
+        //
     ],
 
     /*
@@ -122,7 +119,12 @@ return [
         ],
 
         Watchers\DumpWatcher::class => env('TELESCOPE_DUMP_WATCHER', true),
-        Watchers\EventWatcher::class => env('TELESCOPE_EVENT_WATCHER', true),
+
+        Watchers\EventWatcher::class => [
+            'enabled' => env('TELESCOPE_EVENT_WATCHER', true),
+            'ignore' => [],
+        ],
+
         Watchers\ExceptionWatcher::class => env('TELESCOPE_EXCEPTION_WATCHER', true),
         Watchers\JobWatcher::class => env('TELESCOPE_JOB_WATCHER', true),
         Watchers\LogWatcher::class => env('TELESCOPE_LOG_WATCHER', true),
@@ -157,20 +159,5 @@ return [
         Watchers\ScheduleWatcher::class => env('TELESCOPE_SCHEDULE_WATCHER', true),
 
         Watchers\ViewWatcher::class => env('TELESCOPE_VIEW_WATCHER', true),
-    ],
-
-    /*
-    |--------------------------------------------------------------------------
-    | Ignored Requests
-    |--------------------------------------------------------------------------
-    |
-    | An array of URIs and the methods to ignore when those locations are visited.
-    |
-    */
-
-    'ignored_requests' => [
-        '/' => [
-            HttpRequest::METHOD_HEAD,
-        ],
     ],
 ];
