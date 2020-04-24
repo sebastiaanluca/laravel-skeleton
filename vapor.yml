@@ -1,0 +1,58 @@
+id: TBD
+name: TBD
+separate-vendor: true
+environments:
+    production:
+        gateway-version: 1
+        memory: 128
+        cli-memory: 128
+        concurrency: 20
+        warm: 1
+        database: TBD
+        runtime: php-7.4
+        mail: false
+        queue: false
+        scheduler: false
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'rm -rf .github bootstrap/cache/* storage/{app/*,database,debugbar,framework/sessions/*,framework/testing,framework/views/*,logs} public/{images,scripts,styles,hot,mix-manifest.json} .editorconfig .env.example .env.testing .gitattributes .phpstorm.meta.php .shiftrc _ide_helper.php _ide_helper_models.php SCRATCH.md'
+            - 'yarn install'
+            - 'yarn run production'
+            - 'rm -rf node_modules'
+            - 'php artisan cache:clear'
+            - 'php artisan config:clear'
+            - 'php artisan route:clear'
+            - 'php artisan view:clear'
+            - 'php artisan morphmap:clear'
+            - 'php artisan config:cache'
+            - 'php artisan event:cache'
+            - 'php artisan route:cache'
+            - 'php artisan view:cache'
+            - 'php artisan morphmap:cache'
+    staging:
+        gateway-version: 1
+        memory: 128
+        cli-memory: 128
+        concurrency: 5
+        warm: 1
+        database: TBD
+        runtime: php-7.4
+        mail: false
+        queue: false
+        scheduler: false
+        build:
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'rm -rf .github bootstrap/cache/* storage/{app/*,database,debugbar,framework/sessions/*,framework/testing,framework/views/*,logs} public/{images,scripts,styles,hot,mix-manifest.json} .editorconfig .env.example .env.testing .gitattributes .phpstorm.meta.php .shiftrc _ide_helper.php _ide_helper_models.php SCRATCH.md'
+            - 'yarn install'
+            - 'yarn run production'
+            - 'rm -rf node_modules'
+            - 'php artisan cache:clear'
+            - 'php artisan config:clear'
+            - 'php artisan route:clear'
+            - 'php artisan view:clear'
+            - 'php artisan morphmap:clear'
+            - 'php artisan config:cache'
+            - 'php artisan event:cache'
+            - 'php artisan route:cache'
+            - 'php artisan view:cache'
+            - 'php artisan morphmap:cache'
