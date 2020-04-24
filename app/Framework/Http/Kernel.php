@@ -52,6 +52,7 @@ class Kernel extends HttpKernel
         GuessDisplayLocale::class,
         setDisplayLocale::class,
         SetDisplayTimezone::class,
+        ValidateJsonRequestBody::class,
     ];
 
     /**
@@ -68,13 +69,11 @@ class Kernel extends HttpKernel
             ShareErrorsFromSession::class,
             VerifyCsrfToken::class,
             SubstituteBindings::class,
-            ValidateJsonRequestBody::class,
         ],
 
         'api' => [
             ThrottleRequests::class . ':60,1',
             SubstituteBindings::class,
-            ValidateJsonRequestBody::class,
         ],
     ];
 
