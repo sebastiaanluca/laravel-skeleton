@@ -7,11 +7,6 @@ use Modules\Database\Migration;
 
 class CreateTelescopeEntriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up() : void
     {
         $this->schema()->create('telescope_entries', static function (Blueprint $table) : void {

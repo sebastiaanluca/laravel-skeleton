@@ -7,11 +7,6 @@ use Modules\Database\Migration;
 
 class CreateFailedJobsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up() : void
     {
         $this->schema()->create('failed_jobs', static function (Blueprint $table) : void {

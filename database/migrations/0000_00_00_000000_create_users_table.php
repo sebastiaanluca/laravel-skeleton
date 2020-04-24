@@ -7,11 +7,6 @@ use Modules\Database\Migration;
 
 class CreateUsersTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up() : void
     {
         $this->schema()->create('users', static function (Blueprint $table) : void {
