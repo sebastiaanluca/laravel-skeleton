@@ -1,0 +1,61 @@
+name: Test and deploy to Vapor
+on:
+  push:
+  pull_request:
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Cache dependencies
+        uses: actions/cache@v1
+        with:
+          path: ~/.composer/cache/files
+          key: dependencies-composer-${{ hashFiles('composer.json') }}
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 7.4
+          extensions: dom, curl, libxml, mbstring, zip, pcntl, pdo, sqlite, pdo_sqlite, mysql
+      - name: Copy environment config file
+        run: php -r "file_exists('.env') || copy('.env.testing', '.env');"
+      - name: Validate Composer
+        run: composer validate
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest
+      - name: Run Tests
+        run: ./vendor/bin/phpunit --verbose
+        env:
+          APP_ENV: testing
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        if: failure()
+        with:
+          name: Logs
+          path: ./storage/logs
+  deploy:
+    name: Deploy to Vapor
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/develop' || github.ref == 'refs/heads/master'
+    needs:
+      - test
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name: Validate Composer
+        run: composer validate
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist --no-interaction --no-suggest --no-dev
+      - name: Deploy code
+        run: ./vendor/bin/vapor deploy ${{ env.APP_ENV }} --commit="${{ github.sha }}"
+        env:
+          APP_ENV: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+          VAPOR_API_TOKEN: ${{ secrets.VAPOR_API_TOKEN }}
+      - name: Upload artifacts
+        uses: actions/upload-artifact@master
+        if: failure()
+        with:
+          name: Logs
+          path: ./storage/logs
