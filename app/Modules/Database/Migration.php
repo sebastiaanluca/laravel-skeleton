@@ -12,17 +12,8 @@ abstract class Migration extends BaseMigration
 {
     use ManagesDatabase;
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     *
-     * @throws \Modules\Database\Exceptions\MigrationException
-     */
     public function down() : void
     {
-        if (app()->environment('production', 'staging')) {
-            throw MigrationException::undoNotSupported();
-        }
+        throw MigrationException::undoNotSupported();
     }
 }

@@ -24,6 +24,9 @@ class Application extends LaravelApplication
      */
     public function path($path = '') : string
     {
-        return $this->basePath . DIRECTORY_SEPARATOR . 'app/Framework' . ($path ? DIRECTORY_SEPARATOR . $path : $path);
+        return $this->basePath
+            . DIRECTORY_SEPARATOR
+            . 'app/Framework'
+            . ($path ? DIRECTORY_SEPARATOR . $path : $path);
     }
 }

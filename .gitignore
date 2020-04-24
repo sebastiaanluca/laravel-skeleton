@@ -27,3 +27,6 @@
 /storage/purifier/
 /vendor
 /yarn-error.log
+.vapor/
+.env.production
+.env.staging
