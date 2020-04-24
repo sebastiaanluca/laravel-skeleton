@@ -31,3 +31,11 @@ If you need to return a localized date/time:
 ```php
 $model->created_at->toDisplayTimezone()->isoFormat('LLLL');
 ```
+
+### GitHub workflow
+
+Rename the `.github/workflows/deploy.yml.example` file to `deploy.yml` to enable GitHub workflow testing and automatic deploys to Vapor.
+
+### Vapor
+
+This skeleton project has an `vapor.yml.example` file you can rename to `vapor.yml` to get started.
