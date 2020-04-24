@@ -6,16 +6,11 @@ namespace Interfaces\Web\RequestHandlers\Locale;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
-use Interfaces\Web\RequestHandlers\RequestHandler;
 use Modules\Localization\LocalizationManager;
+use Modules\Support\Http\RequestHandler;
 
 class ChangeLocale extends RequestHandler
 {
-    /**
-     * @param string $locale
-     *
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function handle(string $locale) : RedirectResponse
     {
         if ($user = Auth::user()) {
@@ -29,7 +24,6 @@ class ChangeLocale extends RequestHandler
         LocalizationManager::setSessionLocale($locale);
 
         return redirect()->back();
-
     }
 }
 
