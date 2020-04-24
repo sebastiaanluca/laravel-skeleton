@@ -11,11 +11,6 @@ use SebastiaanLuca\Router\Routers\Router;
 
 class WebRouter extends Router
 {
-    /**
-     * Map the routes.
-     *
-     * @return void
-     */
     public function map() : void
     {
         $this->router->group(['middleware' => 'web'], function () : void {

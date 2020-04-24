@@ -26,12 +26,11 @@
         "nothingworks/blade-svg": "~0.3.2",
         "propaganistas/laravel-fakeid": "^4.0",
         "sebastiaanluca/laravel-auto-morph-map": "^4.0",
-        "sebastiaanluca/laravel-boolean-dates": "^3.0",
-        "sebastiaanluca/laravel-changelog": "^0.2.1",
-        "sebastiaanluca/laravel-helpers": "^4.0",
-        "sebastiaanluca/laravel-presets": "dev-develop",
-        "sebastiaanluca/laravel-route-model-autobinding": "^3.0",
-        "sebastiaanluca/laravel-router": "^8.0",
+        "sebastiaanluca/laravel-boolean-dates": "^4.0",
+        "sebastiaanluca/laravel-changelog": "^0.3.0",
+        "sebastiaanluca/laravel-helpers": "^5.0",
+        "sebastiaanluca/laravel-route-model-autobinding": "^4.0",
+        "sebastiaanluca/laravel-router": "^9.0",
         "sebastiaanluca/php-helpers": "^2.0",
         "sebastiaanluca/php-pipe-operator": "^3.0",
         "sentry/sentry-laravel": "^1.5",
@@ -107,8 +106,7 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@assets:publish",
-            "@code:autocomplete"
+            "@assets:publish"
         ],
         "code:autocomplete": [
             "@php artisan ide-helper:generate --ansi",
