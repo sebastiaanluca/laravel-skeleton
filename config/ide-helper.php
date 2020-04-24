@@ -71,7 +71,6 @@ return [
     'include_helpers' => true,
 
     'helper_files' => [
-        base_path() . '/Modules/Support/helpers.php',
         base_path() . '/vendor/laravel/framework/src/Illuminate/Foundation/helpers.php',
         base_path() . '/vendor/laravel/framework/src/Illuminate/Support/helpers.php',
         base_path() . '/vendor/sebastiaanluca/laravel-helpers/src/Methods/helpers.php',

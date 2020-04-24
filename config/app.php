@@ -185,6 +185,7 @@ return [
          */
 
         Modules\Blade\Providers\BladeServiceProvider::class,
+        Modules\Console\Providers\ConsoleServiceProvider::class,
         Modules\Database\Providers\DatabaseServiceProvider::class,
         Modules\DateTime\Providers\DateTimeServiceProvider::class,
         Modules\Horizon\Providers\HorizonServiceProvider::class,

@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Modules\Horizon\Providers;
 
 use Illuminate\Support\Facades\Gate;
-use Laravel\Horizon\Horizon;
 use Laravel\Horizon\HorizonApplicationServiceProvider;
 
 class HorizonServiceProvider extends HorizonApplicationServiceProvider
@@ -19,7 +18,7 @@ class HorizonServiceProvider extends HorizonApplicationServiceProvider
     {
         parent::boot();
 
-        Horizon::routeMailNotificationsTo(config('mail.support_email'));
+        // Horizon::routeMailNotificationsTo(config('mail.support_email'));
     }
 
     /**

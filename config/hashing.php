@@ -44,8 +44,8 @@ return [
     */
 
     'argon' => [
-        'memory' => 1024,
-        'threads' => 2,
+        'memory' => 128,
+        'threads' => 1,
         'time' => 2,
     ],
 
