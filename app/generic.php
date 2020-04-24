@@ -2,8 +2,6 @@
 
 declare(strict_types=1);
 
-namespace Support;
-
 use Illuminate\Validation\Factory as ValidationFactory;
 
 /**
@@ -62,4 +60,15 @@ function validate($values, $rules) : bool
     return app(ValidationFactory::class)
         ->make($values, $rules)
         ->passes();
+}
+
+if (! function_exists('resource')) {
+    function resource(string $resource)
+    {
+        if (app()->environment('local')) {
+            return mix($resource);
+        }
+
+        return asset($resource);
+    }
 }

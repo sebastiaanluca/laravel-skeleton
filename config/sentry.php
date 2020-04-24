@@ -1,7 +1,5 @@
 <?php
 
-use function Support\commit_hash;
-
 return [
 
     'dsn' => env('SENTRY_LARAVEL_DSN', env('SENTRY_DSN')),

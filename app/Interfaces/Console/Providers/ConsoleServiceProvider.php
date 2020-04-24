@@ -10,17 +10,11 @@ use Illuminate\Console\Command;
 use Illuminate\Support\ServiceProvider;
 use Modules\Support\Concerns\LoadsClassesInDirectory;
 use ReflectionClass;
-use function Support\source_path;
 
 class ConsoleServiceProvider extends ServiceProvider
 {
     use LoadsClassesInDirectory;
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot() : void
     {
         if (! $this->app->runningInConsole()) {
@@ -33,9 +27,6 @@ class ConsoleServiceProvider extends ServiceProvider
         );
     }
 
-    /**
-     * @param string $command
-     */
     private function registerCommand(string $command) : void
     {
         if (is_subclass_of($command, Command::class) && ! (new ReflectionClass($command))->isAbstract()) {

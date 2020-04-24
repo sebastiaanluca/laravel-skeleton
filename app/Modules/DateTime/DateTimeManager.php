@@ -5,13 +5,9 @@ declare(strict_types=1);
 namespace Modules\DateTime;
 
 use Illuminate\Support\Facades\Auth;
-use function Support\validate;
 
 class DateTimeManager
 {
-    /**
-     * Automatically determine and set the application timezone.
-     */
     public static function autoSetDisplayTimezone() : void
     {
         $timezone = static::determineDisplayTimezone();
@@ -19,9 +15,6 @@ class DateTimeManager
         static::setDisplayTimezone($timezone);
     }
 
-    /**
-     * @param string $timezone
-     */
     public static function setDisplayTimezone(string $timezone) : void
     {
         $timezone = static::getSupportedDisplayTimezone($timezone);
@@ -29,9 +22,6 @@ class DateTimeManager
         config()->set('app.display_timezone', $timezone);
     }
 
-    /**
-     * @param string $timezone
-     */
     public static function setSessionDisplayTimezone(string $timezone) : void
     {
         $timezone = static::getSupportedDisplayTimezone($timezone);
@@ -39,11 +29,6 @@ class DateTimeManager
         session()->put('app.display_timezone', $timezone);
     }
 
-    /**
-     * @param string $timezone
-     *
-     * @return string
-     */
     public static function getSupportedDisplayTimezone(string $timezone) : string
     {
         if (validate($timezone, 'timezone')) {
@@ -53,9 +38,6 @@ class DateTimeManager
         return config('app.display_timezone');
     }
 
-    /**
-     * @return string
-     */
     private static function determineDisplayTimezone() : string
     {
         if ($user = Auth::user()) {

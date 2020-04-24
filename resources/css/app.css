@@ -1,9 +1,10 @@
 @import "tailwindcss/base";
 
 /* Add custom base styles here... */
-@import "vendor/vue.css";
 
 @import "tailwindcss/components";
+@import "vendor/vue.css";
+@import "_screenreaders.css";
 
 /* Add custom components here... */
 

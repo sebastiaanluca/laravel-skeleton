@@ -10,17 +10,11 @@ use Interfaces\Web\Enums\WebRoutes;
 use Modules\Support\Concerns\LoadsClassesInDirectory;
 use ReflectionClass;
 use SebastiaanLuca\Router\Routers\Router;
-use function Support\source_path;
 
 class WebServiceProvider extends ServiceProvider
 {
     use LoadsClassesInDirectory;
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
     public function boot() : void
     {
         $this->load(
@@ -33,9 +27,6 @@ class WebServiceProvider extends ServiceProvider
         }
     }
 
-    /**
-     * @param string $router
-     */
     private function registerRouter(string $router) : void
     {
         if (is_subclass_of($router, Router::class) && ! (new ReflectionClass($router))->isAbstract()) {

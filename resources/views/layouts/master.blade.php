@@ -15,28 +15,34 @@
         <link rel="alternate" hreflang="{{ $locale }}" href="{{ route(WebRoutes::CHANGE_LOCALE, $locale) }}">
     @endforeach
 
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>">
+
     <!-- Optimizations -->
-    <link rel="preload" href="{{ mix('css/app.css') }}" as="style">
-    <link rel="preload" href="{{ mix('js/manifest.js') }}" as="script">
-    <link rel="preload" href="{{ mix('js/vendor.js') }}" as="script">
-    <link rel="preload" href="{{ mix('js/app.js') }}" as="script">
+    <link rel="preload" href="{{ resource('css/app.css') }}" as="style">
+    <link rel="preload" href="{{ resource('js/manifest.js') }}" as="script">
+    <link rel="preload" href="{{ resource('js/vendor.js') }}" as="script">
+    <link rel="preload" href="{{ resource('js/app.js') }}" as="script">
     @stack('preload')
 
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <link rel="stylesheet" href="{{ resource('css/app.css') }}">
     @stack('styles')
 
-    <!-- js -->
-    <script src="{{ mix('js/manifest.js') }}"></script>
-    <script src="{{ mix('js/vendor.js') }}"></script>
-    <script src="{{ mix('js/app.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ resource('js/manifest.js') }}" defer></script>
+    <script src="{{ resource('js/vendor.js') }}" defer></script>
+    <script src="{{ resource('js/app.js') }}" defer></script>
     @stack('js')
 </head>
 
 <body class="leading-normal font-sans font-normal text-gray-900 antialiased">
     <div id="app" v-cloak>
+        <a href="#content" class="sr-only sr-only-focusable">Skip to main content</a>
+
         {{ $slot }}
     </div>
-</body>
 
+    <!-- Prevent CSS3 transitions from flashing on page load -->
+    <script> </script>
+</body>
 </html>

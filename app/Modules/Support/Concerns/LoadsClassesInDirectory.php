@@ -8,7 +8,6 @@ use Closure;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Str;
 use Symfony\Component\Finder\Finder;
-use function Support\source_path;
 
 trait LoadsClassesInDirectory
 {

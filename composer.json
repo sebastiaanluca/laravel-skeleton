@@ -78,8 +78,8 @@
             "database/factories"
         ],
         "files": [
-            "app/helpers/domain.php",
-            "app/helpers/support.php"
+            "app/domain.php",
+            "app/generic.php"
         ]
     },
     "autoload-dev": {
