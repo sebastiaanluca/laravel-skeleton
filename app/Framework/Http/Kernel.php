@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Framework\Http;
 
+use Fruitcake\Cors\HandleCors;
 use Illuminate\Auth\Middleware\AuthenticateWithBasicAuth;
 use Illuminate\Auth\Middleware\Authorize;
 use Illuminate\Auth\Middleware\EnsureEmailIsVerified;
@@ -32,7 +33,6 @@ use Modules\Support\Middleware\ForceJsonRequests;
 use Modules\Support\Middleware\TrimStrings;
 use Modules\Support\Middleware\TrustProxies;
 use Modules\Support\Middleware\ValidateJsonRequestBody;
-use Spatie\Cors\Cors;
 
 class Kernel extends HttpKernel
 {
@@ -46,6 +46,7 @@ class Kernel extends HttpKernel
     protected $middleware = [
         TrustProxies::class,
         CheckForMaintenanceMode::class,
+        HandleCors::class,
         ValidatePostSize::class,
         TrimStrings::class,
         ConvertEmptyStringsToNull::class,
@@ -74,7 +75,6 @@ class Kernel extends HttpKernel
         'api' => [
             ForceJsonRequests::class,
             ThrottleRequests::class . ':60,1',
-            Cors::class,
             SubstituteBindings::class,
             ValidateJsonRequestBody::class,
         ],
@@ -113,7 +113,7 @@ class Kernel extends HttpKernel
         StartSession::class,
         ShareErrorsFromSession::class,
         ThrottleRequests::class,
-        Cors::class,
+        HandleCors::class,
         Authenticate::class,
         AuthenticateWithBasicAuth::class,
         AuthenticateOnceWithBasicAuth::class,
