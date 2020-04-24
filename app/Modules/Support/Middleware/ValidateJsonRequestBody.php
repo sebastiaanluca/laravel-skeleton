@@ -25,7 +25,7 @@ class ValidateJsonRequestBody
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($this->isJsonRequest($request) && $this->requestHasContent($request)) {
+        if ($request->isJson() && $this->requestHasContent($request)) {
             try {
                 json_decode($request->getContent(), true, 512, JSON_THROW_ON_ERROR);
             } catch (JsonException $exception) {
@@ -36,21 +36,6 @@ class ValidateJsonRequestBody
         return $next($request);
     }
 
-    /**
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return bool
-     */
-    private function isJsonRequest(Request $request) : bool
-    {
-        return $request->isJson() || $request->wantsJson();
-    }
-
-    /**
-     * @param \Illuminate\Http\Request $request
-     *
-     * @return bool
-     */
     private function requestHasContent(Request $request) : bool
     {
         return trim($request->getContent()) !== '';

@@ -29,7 +29,6 @@ use Modules\Auth\Middleware\RedirectIfAuthenticated;
 use Modules\DateTime\Middleware\SetDisplayTimezone;
 use Modules\Localization\Middleware\GuessDisplayLocale;
 use Modules\Localization\Middleware\setDisplayLocale;
-use Modules\Support\Middleware\ForceJsonRequests;
 use Modules\Support\Middleware\TrimStrings;
 use Modules\Support\Middleware\TrustProxies;
 use Modules\Support\Middleware\ValidateJsonRequestBody;
@@ -73,7 +72,6 @@ class Kernel extends HttpKernel
         ],
 
         'api' => [
-            ForceJsonRequests::class,
             ThrottleRequests::class . ':60,1',
             SubstituteBindings::class,
             ValidateJsonRequestBody::class,
@@ -119,7 +117,6 @@ class Kernel extends HttpKernel
         AuthenticateOnceWithBasicAuth::class,
         AuthenticateSession::class,
         Authorize::class,
-        ForceJsonRequests::class,
         SubstituteBindings::class,
         ValidateJsonRequestBody::class,
     ];
