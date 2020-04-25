@@ -14,7 +14,7 @@ environments:
         queue: false
         scheduler: false
         build:
-            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
             - 'rm -rf .github bootstrap/cache/* storage/{app/*,database,debugbar,framework/sessions/*,framework/testing,framework/views/*,logs} public/{images,scripts,styles,hot,mix-manifest.json} .editorconfig .env.example .env.testing .gitattributes .phpstorm.meta.php .shiftrc _ide_helper.php _ide_helper_models.php SCRATCH.md'
             - 'yarn install'
             - 'yarn run production'
@@ -29,6 +29,8 @@ environments:
             - 'php artisan route:cache'
             - 'php artisan view:cache'
             - 'php artisan morphmap:cache'
+        deploy:
+            - 'php artisan migrate --force'
     staging:
         gateway-version: 1
         memory: 128
@@ -41,7 +43,7 @@ environments:
         queue: false
         scheduler: false
         build:
-            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev'
+            - 'COMPOSER_MIRROR_PATH_REPOS=1 composer install --no-dev --classmap-authoritative'
             - 'rm -rf .github bootstrap/cache/* storage/{app/*,database,debugbar,framework/sessions/*,framework/testing,framework/views/*,logs} public/{images,scripts,styles,hot,mix-manifest.json} .editorconfig .env.example .env.testing .gitattributes .phpstorm.meta.php .shiftrc _ide_helper.php _ide_helper_models.php SCRATCH.md'
             - 'yarn install'
             - 'yarn run production'
@@ -56,3 +58,6 @@ environments:
             - 'php artisan route:cache'
             - 'php artisan view:cache'
             - 'php artisan morphmap:cache'
+        deploy:
+            - 'php artisan migrate --force'›››
+
