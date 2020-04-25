@@ -41,8 +41,8 @@ class RequestHandler extends Controller
      */
     private function handleRequest($arguments)
     {
-        if (method_exists($this, 'authorize')) {
-            $response = app()->call([$this, 'authorize'], $arguments);
+        if (method_exists($this, 'check')) {
+            $response = app()->call([$this, 'check'], $arguments);
         }
 
         if (isset($response) && $response !== null) {
