@@ -35,7 +35,7 @@ environments:
         gateway-version: 1
         memory: 128
         cli-memory: 128
-        concurrency: 5
+        concurrency: 2
         warm: 1
         database: TBD
         runtime: php-7.4
