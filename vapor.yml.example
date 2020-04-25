@@ -36,7 +36,6 @@ environments:
         memory: 128
         cli-memory: 128
         concurrency: 2
-        warm: 1
         database: TBD
         runtime: php-7.4
         mail: false
