@@ -41,7 +41,6 @@ if (mix.inProduction()) {
     mix.purgeCss({
         enabled: true,
         folders: [
-            'app/Modules',
             'resources',
         ],
         whitelistPatterns: [],
@@ -55,7 +54,7 @@ mix.browserSync({
     open: false,
     https: true,
     files: [
-        './resources/views/**/*.blade.php',
+        './resources/views/**/*',
     ],
     reloadDelay: process.env.BROWSERSYNC_DELAY ? parseInt(process.env.BROWSERSYNC_DELAY) : 0,
 

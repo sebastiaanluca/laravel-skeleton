@@ -16,6 +16,6 @@ class Authenticate extends Middleware
      */
     protected function redirectTo($request) : ?string
     {
-        return route('users.login');
+        return route('login');
     }
 }

@@ -26,7 +26,7 @@
 
     <!-- Styles -->
     <link rel="stylesheet" href="{{ resource('css/app.css') }}">
-    @stack('styles')
+    @stack('css')
 
     <!-- Scripts -->
     <script src="{{ resource('js/manifest.js') }}" defer></script>
